@@ -37,4 +37,5 @@ setValue = (e) => {
     );
   }
 }
+
 export default NewsSearch;
