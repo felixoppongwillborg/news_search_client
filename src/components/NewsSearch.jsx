@@ -9,16 +9,19 @@ class NewsSearch extends Component {
   };  
   async performSearch() {
     debugger
-    const results = await axios.get(`http://newsapi.org/v2/everything?q=${this.state.search}&from=2020-07-12&sortBy=publishedAt&apiKey=<API_KEY>`)
+    const results = await axios.get(`http://newsapi.org/v2/everything?q=${this.state.search}&from=2020-07-12&sortBy=publishedAt&apiKey=b2bf38ecdb764ae6a963b763c64a9473`)
     this.setState({items: results.data.articles});
   }
 setValue = (e) => {
     this.setState({ search: e.target.value });
   };
   render() {
-    let displayNews = this.state.items.map(items => {
+    let displayNews = this.state.items.map(item => {
       return (
-      <li>{items.articles}</li>
+      <div>
+      <h3>{item.title}</h3>
+      <p>{item.content}</p>
+      </div>
       )
     })
     return (
